@@ -6,11 +6,7 @@ export type {
 export { Namespace } from './namespaces/mod.js';
 
 export { Provider } from './provider/mod.js';
-export type {
-  CommonNamespaces,
-  CommonNamespaceKeys,
-  Context,
-} from './provider/mod.js';
+export type { CommonNamespaces, CommonNamespaceKeys } from './provider/mod.js';
 
 export { Hub } from './hub.js';
 export type { Store, State, ProviderInfo } from './store/mod.js';
