@@ -1466,16 +1466,13 @@ export function retryOn(
   if (finalQueueToBeRun) {
     const finalQueueStorage = finalQueueToBeRun.getStorage() as SwapStorage;
     const currentSwap = getCurrentStep(finalQueueStorage?.swapDetails);
-    if (!currentSwap) {
-      return;
-    }
-    const currentNamespace = getCurrentNamespaceOfOrNull(
-      finalQueueStorage.swapDetails,
-      currentSwap
-    );
+
+    const currentNamespace = currentSwap
+      ? getCurrentNamespaceOfOrNull(finalQueueStorage.swapDetails, currentSwap)
+      : null;
     if (
-      network &&
-      currentNamespace &&
+      !network ||
+      !currentNamespace ||
       !canSwitchNetworkTo?.(wallet, network, currentNamespace)
     ) {
       finalQueueToBeRun?.unblock();
