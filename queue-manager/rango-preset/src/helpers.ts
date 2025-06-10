@@ -9,6 +9,7 @@ import type {
   SwapQueueContext,
   SwapQueueDef,
   SwapStorage,
+  UseQueueManagerParams,
 } from './types';
 import type {
   ExecuterActions,
@@ -1403,11 +1404,7 @@ export function resetRunningSwapNotifsOnPageLoad(runningSwaps: PendingSwap[]) {
 export function retryOn(
   lastConnectedWallet: LastConnectedWallet,
   manager?: Manager,
-  canSwitchNetworkTo?: (
-    type: WalletType,
-    network: Network,
-    namespace: TargetNamespace
-  ) => boolean,
+  canSwitchNetworkTo?: UseQueueManagerParams['canSwitchNetworkTo'],
   options = { fallbackToOnlyWallet: true }
 ): void {
   const { walletType: wallet, network } = lastConnectedWallet;
@@ -1475,7 +1472,7 @@ export function retryOn(
       !currentNamespace ||
       !canSwitchNetworkTo?.(wallet, network, currentNamespace)
     ) {
-      finalQueueToBeRun?.unblock();
+      finalQueueToBeRun.unblock();
     } else {
       finalQueueToBeRun?.checkBlock();
     }
