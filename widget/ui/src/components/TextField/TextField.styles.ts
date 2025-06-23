@@ -17,11 +17,8 @@ export const InputContainer = styled('div', {
       },
     },
     size: {
-      small: {
-        padding: '$5 $15',
-      },
+      small: {},
       large: {
-        padding: '$10',
         borderRadius: '$xl',
       },
     },
@@ -109,8 +106,13 @@ export const Input = styled('input', {
   fontFamily: 'inherit',
   maxWidth: '100%',
   variants: {
-    suffix: {
-      true: { marginRight: '$10' },
+    size: {
+      small: {
+        padding: '$5 $15',
+      },
+      large: {
+        padding: '$10',
+      },
     },
   },
   backgroundColor: 'transparent',

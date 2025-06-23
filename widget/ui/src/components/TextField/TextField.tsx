@@ -73,7 +73,7 @@ function TextFieldComponent(
           onKeyDown={handleKeyDown}
           onPaste={handlePaste}
           spellCheck={false}
-          suffix={!!suffix}
+          size={size}
           ref={ref}
         />
         {suffix || null}
