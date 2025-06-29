@@ -47,8 +47,6 @@ export function SearchInput(props: PropTypes) {
       color={color}
       variant={variant}
       style={{
-        paddingLeft: 10,
-        paddingRight: 10,
         borderRadius: 25,
         alignItems: 'center',
         ...style,

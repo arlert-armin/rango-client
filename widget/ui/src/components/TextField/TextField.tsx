@@ -66,17 +66,18 @@ function TextFieldComponent(
         css={style}
         status={status}
         className="_text-field">
-        {prefix || null}
+        {prefix && <div className="text-field_prefix">{prefix}</div>}
         <Input
           autoComplete="off"
           {...inputAttributes}
           onKeyDown={handleKeyDown}
           onPaste={handlePaste}
           spellCheck={false}
+          prefix={!!prefix}
           size={size}
           ref={ref}
         />
-        {suffix || null}
+        {suffix && <div className="text-field_suffix">{suffix}</div>}
       </InputContainer>
     </>
   );

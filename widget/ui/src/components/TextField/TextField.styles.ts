@@ -17,9 +17,22 @@ export const InputContainer = styled('div', {
       },
     },
     size: {
-      small: {},
+      small: {
+        '& .text-field_prefix': {
+          paddingLeft: '$15',
+        },
+        '& .text-field_suffix': {
+          paddingRight: '$15',
+        },
+      },
       large: {
         borderRadius: '$xl',
+        '& .text-field_prefix': {
+          paddingLeft: '$10',
+        },
+        '& .text-field_suffix': {
+          paddingRight: '$10',
+        },
       },
     },
     variant: {
@@ -106,15 +119,37 @@ export const Input = styled('input', {
   fontFamily: 'inherit',
   maxWidth: '100%',
   variants: {
+    prefix: {
+      true: {
+        paddingLeft: '$0',
+      },
+      false: {},
+    },
     size: {
       small: {
-        padding: '$5 $15',
+        padding: '$5 $15 $5 $0',
       },
       large: {
-        padding: '$10',
+        padding: '$10 $10 $10 $0',
       },
     },
   },
+  compoundVariants: [
+    {
+      size: 'small',
+      prefix: false,
+      css: {
+        paddingLeft: '$15',
+      },
+    },
+    {
+      size: 'large',
+      prefix: false,
+      css: {
+        paddingLeft: '$10',
+      },
+    },
+  ],
   backgroundColor: 'transparent',
   '-webkit-appearance': 'none',
   margin: 0,
