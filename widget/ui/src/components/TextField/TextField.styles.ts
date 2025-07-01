@@ -127,7 +127,7 @@ export const Input = styled('input', {
     },
     size: {
       small: {
-        padding: '$5 $15 $5 $0',
+        padding: '$6 $15 $6 $0',
       },
       large: {
         padding: '$10 $10 $10 $0',
