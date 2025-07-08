@@ -65,8 +65,10 @@ function TextFieldComponent(
         size={size}
         css={style}
         status={status}
+        suffix={!!suffix}
+        prefix={!!prefix}
         className="_text-field">
-        {prefix && <div className="text-field_prefix">{prefix}</div>}
+        {prefix}
         <Input
           autoComplete="off"
           {...inputAttributes}
@@ -77,7 +79,7 @@ function TextFieldComponent(
           size={size}
           ref={ref}
         />
-        {suffix && <div className="text-field_suffix">{suffix}</div>}
+        {suffix}
       </InputContainer>
     </>
   );

@@ -17,24 +17,24 @@ export const InputContainer = styled('div', {
       },
     },
     size: {
-      small: {
-        '& .text-field_prefix': {
-          paddingLeft: '$15',
-        },
-        '& .text-field_suffix': {
-          paddingRight: '$15',
-        },
-      },
+      small: {},
       large: {
         borderRadius: '$xl',
-        '& .text-field_prefix': {
-          paddingLeft: '$10',
-        },
-        '& .text-field_suffix': {
-          paddingRight: '$10',
-        },
       },
     },
+    suffix: {
+      true: {},
+      false: {
+        padding: 0,
+      },
+    },
+    prefix: {
+      true: {},
+      false: {
+        padding: 0,
+      },
+    },
+
     variant: {
       contained: {
         $$color: '$colors$neutral100',
@@ -87,6 +87,34 @@ export const InputContainer = styled('div', {
   },
 
   compoundVariants: [
+    {
+      size: 'small',
+      suffix: true,
+      css: {
+        paddingRight: '$15',
+      },
+    },
+    {
+      size: 'small',
+      prefix: true,
+      css: {
+        paddingLeft: '$15',
+      },
+    },
+    {
+      size: 'large',
+      suffix: true,
+      css: {
+        paddingRight: '$10',
+      },
+    },
+    {
+      size: 'large',
+      prefix: true,
+      css: {
+        paddingLeft: '$10',
+      },
+    },
     {
       variant: 'contained',
       disabled: true,
