@@ -1,3 +1,4 @@
+import type { ProviderAPI } from '@rango-dev/wallets-core/namespaces/cosmos';
 import type { CosmosTransaction, GenericSigner } from 'rango-types';
 
 import {
@@ -7,12 +8,7 @@ import {
 } from '@rango-dev/wallets-shared';
 import { SignerError, SignerErrorCode } from 'rango-types';
 
-/*
- * TODO - replace with real type
- * tslint:disable-next-line: no-any
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type CosmosExternalProvider = any;
+type CosmosExternalProvider = ProviderAPI;
 
 export class CustomCosmosSigner implements GenericSigner<CosmosTransaction> {
   private provider: CosmosExternalProvider;
