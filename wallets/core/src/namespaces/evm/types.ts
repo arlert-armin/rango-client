@@ -1,16 +1,24 @@
 import type { AddEthereumChainParameter, EIP1193Provider } from './eip1193.js';
+import type { Provider } from '../../mod.js';
 import type { AccountsWithActiveChain } from '../../types/accounts.js';
 import type {
   AutoImplementedActionsByRecommended,
   CommonActions,
 } from '../common/types.js';
+import type { BlockchainMeta } from 'rango-types';
 
 export interface EvmActions
   extends AutoImplementedActionsByRecommended,
     CommonActions {
   connect: (chain?: Chain | ChainId) => Promise<AccountsWithActiveChain>;
   canEagerConnect: () => Promise<boolean>;
+  canSwitchNetwork: (params: CanSwitchNetworkParams) => boolean;
 }
+type CanSwitchNetworkParams = {
+  meta: BlockchainMeta[];
+  network: string;
+  provider?: Provider;
+};
 
 export type ProviderAPI = EIP1193Provider;
 // A 0x-prefixed hexadecimal string

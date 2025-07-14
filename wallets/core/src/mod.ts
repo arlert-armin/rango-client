@@ -18,6 +18,7 @@ export {
 } from './hub/mod.js';
 
 export type { ProxiedNamespace, FindProxiedNamespace } from './builders/mod.js';
+export type { FunctionWithContext } from './types/actions.js';
 export {
   NamespaceBuilder,
   ProviderBuilder,
