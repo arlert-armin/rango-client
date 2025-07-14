@@ -1474,7 +1474,7 @@ export function retryOn(
     ) {
       finalQueueToBeRun.unblock();
     } else {
-      finalQueueToBeRun?.checkBlock();
+      finalQueueToBeRun.checkBlock();
     }
   }
 }
