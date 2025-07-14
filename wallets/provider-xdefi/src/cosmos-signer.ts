@@ -1,12 +1,17 @@
 import type { CosmosTransaction, GenericSigner } from 'rango-types';
 
-import { getNetworkInstance, Networks } from '@rango-dev/wallets-shared';
+import {
+  getNetworkInstance,
+  Networks,
+  retryLazyImport,
+} from '@rango-dev/wallets-shared';
 import { SignerError, SignerErrorCode } from 'rango-types';
 
 /*
  * TODO - replace with real type
  * tslint:disable-next-line: no-any
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type CosmosExternalProvider = any;
 
 export class CustomCosmosSigner implements GenericSigner<CosmosTransaction> {
@@ -35,8 +40,8 @@ export class CustomCosmosSigner implements GenericSigner<CosmosTransaction> {
     }
   }
   async signAndSendTx(tx: CosmosTransaction): Promise<{ hash: string }> {
-    const { executeCosmosTransaction } = await import(
-      '@rango-dev/signer-cosmos'
+    const { executeCosmosTransaction } = await retryLazyImport(
+      async () => await import('@rango-dev/signer-cosmos')
     );
 
     if (tx.rawTransfer === null) {
