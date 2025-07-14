@@ -1,10 +1,10 @@
 import type { AddEthereumChainParameter, EIP1193Provider } from './eip1193.js';
-import type { Provider } from '../../mod.js';
 import type { AccountsWithActiveChain } from '../../types/accounts.js';
 import type {
   AutoImplementedActionsByRecommended,
   CommonActions,
 } from '../common/types.js';
+import type { BlockchainMeta } from 'rango-types';
 
 export interface EvmActions
   extends AutoImplementedActionsByRecommended,
@@ -15,7 +15,7 @@ export interface EvmActions
 }
 type CanSwitchNetworkParams = {
   network: string;
-  provider?: Provider;
+  supportedChains: BlockchainMeta[];
 };
 
 export type ProviderAPI = EIP1193Provider;
