@@ -1,6 +1,6 @@
 {
   "name": "@arlert-dev/logging-types",
-  "version": "0.9.1-next.1",
+  "version": "0.10.0",
   "license": "MIT",
   "type": "module",
   "source": "./src/index.ts",

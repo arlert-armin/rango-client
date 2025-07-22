@@ -1,6 +1,6 @@
 {
   "name": "@arlert-dev/logging-sentry",
-  "version": "0.11.1-next.1",
+  "version": "0.12.0",
   "license": "MIT",
   "type": "module",
   "source": "./src/index.ts",
@@ -14,7 +14,7 @@
     "src"
   ],
   "dependencies": {
-    "@arlert-dev/logging-types": "^0.9.1-next.1"
+    "@arlert-dev/logging-types": "^0.10.0"
   },
   "devDependencies": {
     "@sentry/browser": "^7.119.1"
