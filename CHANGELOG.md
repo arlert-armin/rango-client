@@ -1,3 +1,6 @@
+## Widget [0.41.0] (2025-06-10)
+_includes `@arlert-dev/widget-embedded@0.46.2`_
+
 ## Widget [0.38.0] (2025-06-10)
 _includes `@arlert-dev/widget-embedded@0.44.1`_
 
