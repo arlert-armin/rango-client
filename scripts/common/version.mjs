@@ -62,7 +62,6 @@ export async function increaseVersionForProd(pkg) {
   ])
     .then((result) => result.stdout)
     .then((output) => {
-
       const versions = parseYarnVersionResult(output);
 
       if (!versions.current && !versions.next) {
@@ -112,7 +111,7 @@ export async function recommendBump(pkg) {
 
 function parseYarnVersionResult(output) {
   const logs = output.split('\n').map((jsonString) => JSON.parse(jsonString));
-
+  console.log(output, 'output log');
   const versions = logs.reduce(
     (prev, log) => {
       if (log.data.startsWith('Current version:')) {
