@@ -50,7 +50,17 @@ export async function increaseVersionForNext(pkg) {
 export async function increaseVersionForProd(pkg) {
   const recommendation = await recommendBump(pkg);
   const releaseType = recommendation.releaseType;
-
+  console.log(
+    [
+      'workspace',
+      pkg.name,
+      'version',
+      `--${releaseType}`,
+      '--no-git-tag-version',
+      '--json',
+    ],
+    'prod release'
+  );
   /** @type {import('./typedefs.mjs').IncreaseVersionResult} */
   const versions = await execa('yarn', [
     'workspace',
@@ -114,7 +124,7 @@ export async function recommendBump(pkg) {
 
 function parseYarnVersionResult(output) {
   const logs = output.split('\n').map((jsonString) => JSON.parse(jsonString));
-
+  console.log(output, 'output log');
   const versions = logs.reduce(
     (prev, log) => {
       if (log.data.startsWith('Current version:')) {
