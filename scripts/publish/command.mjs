@@ -16,7 +16,7 @@ import { addFileToStage, publishCommitAndTags, push } from '../common/git.mjs';
 import { update } from './package.mjs';
 import { build } from './build.mjs';
 import { should } from '../common/features.mjs';
-
+import { generateRootChangelog } from './rootChangelog.mjs';
 
 async function run() {
   logAsSection('::group::🔍 Checking environments...');
@@ -132,6 +132,7 @@ async function run() {
     );
 
     await publishCommitAndTags(listPkgsForTag);
+    await generateRootChangelog();
     await push();
     performance.mark(`end-publish-tagging`);
     const duration_build = performance.measure(
