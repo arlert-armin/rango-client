@@ -62,7 +62,6 @@ export async function increaseVersionForProd(pkg) {
   ])
     .then((result) => result.stdout)
     .then((output) => {
-
       const versions = parseYarnVersionResult(output);
 
       if (!versions.current && !versions.next) {
@@ -103,6 +102,9 @@ export async function recommendBump(pkg) {
         if (error) {
           reject(error);
         } else {
+          if (!recommendation?.releaseType) {
+            return resolve({ releaseType: 'minor' });
+          }
           resolve(recommendation);
         }
       }
