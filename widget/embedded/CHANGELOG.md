@@ -779,3 +779,17 @@
 
 
 
+# [0.47.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.46.4...widget-embedded@0.47.0) (2025-08-03)
+
+
+### Bug Fixes
+
+* versions ([ac090b4](https://github.com/arlert-armin/rango-client/commit/ac090b441ced01dbb6d8defd6028dae4757f38f0))
+
+
+### Features
+
+* change the text lets see ([698b74f](https://github.com/arlert-armin/rango-client/commit/698b74f1d5b15470d5225f012f42318e1cb5a49b))
+
+
+
