@@ -8,7 +8,7 @@ export async function generateRootChangelog() {
   if (should('generateChangelog')) {
     console.log(`Making root changelog...`);
     generateChangelogAndSave();
-    await addFileToStage(path.join('.', CHANGELOG.md));
+    await addFileToStage(path.join('.', 'CHANGELOG.md'));
     const message = `${DEPLOY_COMMIT_SUBJECT}`;
     const body = '[skip ci]';
 
