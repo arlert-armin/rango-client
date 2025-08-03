@@ -4,7 +4,7 @@ import { should } from '../common/features.mjs';
 import { addFileToStage } from '../common/git.mjs';
 import { DEPLOY_COMMIT_SUBJECT } from '../common/constants.mjs';
 import { execa } from 'execa';
-import { GitError } from './errors.mjs';
+import { GitError } from '../common/errors.mjs';
 
 export async function generateRootChangelog() {
   if (should('generateChangelog')) {
