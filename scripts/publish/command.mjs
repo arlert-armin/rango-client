@@ -16,8 +16,7 @@ import { addFileToStage, publishCommitAndTags, push } from '../common/git.mjs';
 import { update } from './package.mjs';
 import { build } from './build.mjs';
 import { should } from '../common/features.mjs';
-import { generateChangelogAndSave } from '../common/changelog.mjs';
-import path from 'node:path';
+import { generateRootChangelog } from './rootChangelog.mjs';
 
 async function run() {
   logAsSection('::group::🔍 Checking environments...');
@@ -79,11 +78,6 @@ async function run() {
   console.log('::endgroup::');
 
   // 3. Publish
-  if (should('generateChangelog')) {
-    console.log(`Making root changelog...`);
-    generateChangelogAndSave();
-    addFileToStage(`${path.join('.')}/CHANGELOG.md`);
-  }
 
   try {
     await tryPublish(pkgs, {
@@ -138,6 +132,7 @@ async function run() {
     );
 
     await publishCommitAndTags(listPkgsForTag);
+    await generateRootChangelog();
     await push();
     performance.mark(`end-publish-tagging`);
     const duration_build = performance.measure(
