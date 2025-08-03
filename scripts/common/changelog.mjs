@@ -135,6 +135,7 @@ export function generateChangelog(pkg) {
  */
 export function generateChangelogAndSave(pkg) {
   const changelog = generateChangelog(pkg);
+  console.log(changelog, pkg, 'generated changelog');
 
   // we only need location for file stream, when pkg is undefined, we will point to root package.json
   if (!pkg) pkg = { location: rootPath() };

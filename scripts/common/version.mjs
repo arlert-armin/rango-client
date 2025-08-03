@@ -113,7 +113,8 @@ export async function recommendBump(pkg) {
           reject(error);
         } else {
           if (!recommendation?.releaseType) {
-            return resolve({ releaseType: 'minor' });
+            console.log('version problem');
+            return resolve({ releaseType: 'patch' });
           }
           resolve(recommendation);
         }
