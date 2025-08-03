@@ -112,6 +112,9 @@ export async function recommendBump(pkg) {
         if (error) {
           reject(error);
         } else {
+          if (!recommendation?.releaseType) {
+            return resolve({ releaseType: 'minor' });
+          }
           resolve(recommendation);
         }
       }
