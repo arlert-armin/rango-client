@@ -16,7 +16,6 @@ import { addFileToStage, publishCommitAndTags, push } from '../common/git.mjs';
 import { update } from './package.mjs';
 import { build } from './build.mjs';
 import { should } from '../common/features.mjs';
-import { generateRootChangelog } from './rootChangelog.mjs';
 import { versionLog } from './version-log.mjs';
 
 async function run() {
