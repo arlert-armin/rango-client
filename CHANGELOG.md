@@ -502,3 +502,7 @@ _includes `@arlert-dev/widget-embedded@VERSION`_
 ### Features
 
 - commit message
+# [1.0.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.47.7.../^[^@]+@/1.0.0) (2025-08-05)
+
+
+
