@@ -11,22 +11,22 @@ import {
   WIDGET_APP_PACKAGE_NAME,
 } from '../deploy/config.mjs';
 function rootPath() {
-  return () => path.join('.');
+  return path.join('.');
 }
 function rootChangelogPath() {
-  return () => path.join(rootPath(), 'CHANGELOG.md');
+  return path.join(rootPath(), 'CHANGELOG.md');
 }
 function widgetAppPackageJsonPath() {
-  return () => path.join(rootPath(), 'widget', 'app', 'package.json');
+  return path.join(rootPath(), 'widget', 'app', 'package.json');
 }
 function playgroundPackageJsonPath() {
-  return () => path.join(rootPath(), 'widget', 'app', 'package.json');
+  return path.join(rootPath(), 'widget', 'playground', 'package.json');
 }
 async function generateRootChangelog() {
   if (should('generateChangelog')) {
-    console.log(`Making root changelog...`);
-    generateChangelogAndSave();
-    await addFileToStage(rootChangelogPath());
+  console.log(`Making root changelog...`);
+  await generateChangelogAndSave();
+  await addFileToStage(rootChangelogPath());
   } else {
     console.log('Skipping root changelog...');
   }
@@ -64,12 +64,12 @@ async function bumpPackageVersion(pkg) {
 }
 export async function versionLog() {
   if (should('generateChangelog')) {
-    console.log(chalk.green('[1/3]'), `Generate root changelog`);
-    await generateRootChangelog();
-    console.log(chalk.green('[2/3]'), `Bump versions`);
-    await bumpVersions();
-    console.log(chalk.green('[3/3]'), `Commit changes`);
-    await commitChanges();
+  console.log(chalk.green('[1/3]'), `Generate root changelog`);
+  await generateRootChangelog();
+  console.log(chalk.green('[2/3]'), `Bump versions`);
+  await bumpVersions();
+  console.log(chalk.green('[3/3]'), `Commit changes`);
+  await commitChanges();
   } else {
     console.log('Skipping root changelog and versioning...');
   }
