@@ -1,13 +1,15 @@
 import { packageNameWithoutScope } from './utils.mjs';
 import { ConventionalChangelog } from 'conventional-changelog';
 import { ConventionalGitClient } from '@conventional-changelog/git-client';
-import { WriteStream } from 'node:fs';
-import fs from 'node:fs';
+import { createWriteStream, createReadStream, WriteStream } from 'node:fs';
 import path from 'node:path';
+import { pipeline } from 'node:stream/promises';
+import { rename, unlink, access } from 'node:fs/promises';
 
 // Our tagging is using lerna convention which is package-name@version
 // for example for @rango-dev/wallets-core, it will be wallets-core@1.1.0
-const TAG_PACKAGE_PREFIX = (pkg) => `${packageNameWithoutScope(pkg.name)}@`;
+export const TAG_PACKAGE_PREFIX = (pkg) =>
+  `${packageNameWithoutScope(pkg.name)}@`;
 const TAG_ROOT_PREFIX = /^[^@]+@/;
 
 // TODO: this is not correct assumption that the script will be run from the root.
@@ -90,12 +92,34 @@ export async function getInfoBeforeGeneratingChangelog(pkg) {
  */
 export function changelogFileStream(pkg) {
   const changelogPath = path.join(pkg.location, 'CHANGELOG.md');
-  const file = fs.createWriteStream(changelogPath, {
-    encoding: 'utf-8',
-    flags: 'a',
+  const changelogPathTmp = changelogPath + '.tmp';
+
+  // Creating a temp writer to don't load the whole file in memory at once, at the end will append the old changelog to the temp, then rename it.
+  const tempWriteStream = createWriteStream(changelogPathTmp);
+
+  tempWriteStream.on('finish', async () => {
+    try {
+      // if a changelog already exists, we append the old one top the temp.
+      await access(changelogPath)
+        .then(() =>
+          pipeline(
+            createReadStream(changelogPath),
+            createWriteStream(changelogPathTmp, { flags: 'a' })
+          )
+        )
+        .catch(() => {
+          // ignore.
+        });
+
+      // replace temp as the main changelog.
+      await rename(changelogPathTmp, changelogPath);
+    } catch (err) {
+      console.error('Failed to prepend changelog:', { err });
+      void unlink(changelogPathTmp);
+    }
   });
 
-  return file;
+  return tempWriteStream;
 }
 
 /**
@@ -137,7 +161,8 @@ export async function generateChangelogAndSave(pkg) {
   return new Promise((resolve, reject) => {
     const changelog = generateChangelog(pkg);
 
-    // we only need location for file stream, when pkg is undefined, we will point to root package.json
+    // we only need location for file stream, when pkg is undefined, we will point to root of the project.
+    // useful for creating root changelog for a monorepo, or for normal repos.
     if (!pkg) pkg = { location: rootPath() };
 
     const writeStream = changelog.pipe(changelogFileStream(pkg));
