@@ -1,3 +1,12 @@
+# [0.48.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.47.7...widget-embedded@0.48.0) (2025-08-10)
+
+
+### Features
+
+* change home text ([db6b4b5](https://github.com/arlert-armin/rango-client/commit/db6b4b59c2a10559ecf347f84be84bb37b96b9c3))
+
+
+
 ## [0.46.4](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.46.3...widget-embedded@0.46.4) (2025-07-27)
 
 
