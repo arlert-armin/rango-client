@@ -12,6 +12,9 @@ jobs:
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
+    with:
+      branch:
+        main
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PAT: ${{ secrets.PAT }}
@@ -19,6 +22,9 @@ jobs:
   deploy:
     needs: publish
     uses: ./.github/workflows/deploy.yml
+    with:
+      branch:
+        main
     secrets:
       PAT: ${{ secrets.PAT }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -30,6 +36,9 @@ jobs:
 
   post-release:
     needs: deploy
+    with:
+      branch:
+        next
     uses: ./.github/workflows/post-release.yml
     secrets:
       PAT: ${{ secrets.PAT }}
