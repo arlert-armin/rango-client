@@ -1,3 +1,12 @@
+# [0.52.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.51.0...widget-embedded@0.52.0) (2025-08-12)
+
+
+### Features
+
+* rabby ([5ddb000](https://github.com/arlert-armin/rango-client/commit/5ddb000a09d4ad50fff923e33218ea0995892052))
+
+
+
 # [0.51.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.50.0...widget-embedded@0.51.0) (2025-08-12)
 
 

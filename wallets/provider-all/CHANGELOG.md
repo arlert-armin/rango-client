@@ -1,3 +1,7 @@
+# [0.51.0](https://github.com/arlert-armin/rango-client/compare/provider-all@0.50.0...provider-all@0.51.0) (2025-08-12)
+
+
+
 # [0.47.0](https://github.com/rango-exchange/rango-client/compare/provider-all@0.46.0...provider-all@0.47.0) (2025-06-09)
 
 
