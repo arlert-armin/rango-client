@@ -1,3 +1,18 @@
+# [5.0.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.51.0.../^[^@]+@/5.0.0) (2025-08-12)
+
+
+### Bug Fixes
+
+* ci strings ([374bdd5](https://github.com/arlert-armin/rango-client/commit/374bdd510c21ecc9c11fa87a632b14c77a923dea))
+
+
+### Features
+
+* rabby ([5ddb000](https://github.com/arlert-armin/rango-client/commit/5ddb000a09d4ad50fff923e33218ea0995892052))
+* rabby address ([cd023fd](https://github.com/arlert-armin/rango-client/commit/cd023fde7d58bba3efe8a38f137cdf050dcd1b77))
+
+
+
 # [4.0.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.50.0.../^[^@]+@/4.0.0) (2025-08-12)
 
 
