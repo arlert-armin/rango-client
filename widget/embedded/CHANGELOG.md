@@ -1,3 +1,12 @@
+# [0.51.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.50.0...widget-embedded@0.51.0) (2025-08-12)
+
+
+### Features
+
+* check if working ([b9186cf](https://github.com/arlert-armin/rango-client/commit/b9186cf0f9778098c2dda1eaff1c281dc8b748fa))
+
+
+
 # [0.50.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.49.0...widget-embedded@0.50.0) (2025-08-12)
 
 
