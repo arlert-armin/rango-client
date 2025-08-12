@@ -1,3 +1,13 @@
+# [0.49.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.48.0...widget-embedded@0.49.0) (2025-08-12)
+
+
+### Features
+
+* emitting test ([9f41393](https://github.com/arlert-armin/rango-client/commit/9f413936ecc2098099cefcbeb90a1c3249e96b38))
+* is it reallly versioning correct ([f68f8a4](https://github.com/arlert-armin/rango-client/commit/f68f8a4096459a5fe3cd1b55ab3a62386e7aea4d))
+
+
+
 # [0.48.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.47.7...widget-embedded@0.48.0) (2025-08-10)
 
 
