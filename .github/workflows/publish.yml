@@ -24,11 +24,15 @@ jobs:
   publish:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.branch || github.ref }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
+          ref: ${{ env.TARGET_BRANCH }}
+
       - run: git pull
 
       - name: Prepare
@@ -37,7 +41,7 @@ jobs:
       - name: Build, Version & Publish packages
         run: yarn run publish
         env:
-          REF: ${{ inputs.branch || github.ref_name }}
+          REF: ${{ env.TARGET_BRANCH }}
           GH_TOKEN: ${{ github.token }}
           # Github will create .npmrc based on this env variable.
           # https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
