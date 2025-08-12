@@ -1,3 +1,13 @@
+# [0.50.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.49.0...widget-embedded@0.50.0) (2025-08-12)
+
+
+### Features
+
+* change title ([767723e](https://github.com/arlert-armin/rango-client/commit/767723eed5ce90dd8d5e36a2cd9e71cae6e88e80))
+* fix the versions ([c3d3c52](https://github.com/arlert-armin/rango-client/commit/c3d3c523ec163bf9ca156608a3770bae341140b9))
+
+
+
 # [0.49.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.48.0...widget-embedded@0.49.0) (2025-08-12)
 
 
