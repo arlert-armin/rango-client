@@ -16,6 +16,9 @@ function rootPath() {
 function rootChangelogPath() {
   return path.join(rootPath(), 'CHANGELOG.md');
 }
+function rootPackageJsonPath() {
+  return path.join(rootPath(), 'package.json');
+}
 function widgetAppPackageJsonPath() {
   return path.join(rootPath(), 'widget', 'app', 'package.json');
 }
@@ -23,13 +26,9 @@ function playgroundPackageJsonPath() {
   return path.join(rootPath(), 'widget', 'playground', 'package.json');
 }
 async function generateRootChangelog() {
-  if (should('generateChangelog')) {
   console.log(`Making root changelog...`);
   await generateChangelogAndSave();
   await addFileToStage(rootChangelogPath());
-  } else {
-    console.log('Skipping root changelog...');
-  }
 }
 async function commitChanges() {
   const message = `${DEPLOY_COMMIT_SUBJECT}`;
@@ -42,15 +41,20 @@ async function commitChanges() {
   });
 }
 async function bumpVersions() {
-  const appBumpOutput = await bumpPackageVersion(WIDGET_APP_PACKAGE_NAME);
+  await bumpRootVersion();
+  await addFileToStage(rootPackageJsonPath());
+  await bumpPackageVersion(WIDGET_APP_PACKAGE_NAME);
   await addFileToStage(widgetAppPackageJsonPath());
-  console.log('Widget App bump output: \n', appBumpOutput);
-  const playgroundBumpOutput = await bumpPackageVersion(
-    PLAYGROUND_PACKAGE_NAME
-  );
+  await bumpPackageVersion(PLAYGROUND_PACKAGE_NAME);
   await addFileToStage(playgroundPackageJsonPath());
-
-  console.log('Playground bump output: \n', playgroundBumpOutput);
+}
+async function bumpRootVersion(pkg) {
+  return await execa('yarn', [
+    'version',
+    `--major`,
+    '--no-git-tag-version',
+    '--json',
+  ]);
 }
 async function bumpPackageVersion(pkg) {
   return await execa('yarn', [
@@ -64,12 +68,13 @@ async function bumpPackageVersion(pkg) {
 }
 export async function versionLog() {
   if (should('generateChangelog')) {
-  console.log(chalk.green('[1/3]'), `Generate root changelog`);
-  await generateRootChangelog();
-  console.log(chalk.green('[2/3]'), `Bump versions`);
-  await bumpVersions();
-  console.log(chalk.green('[3/3]'), `Commit changes`);
-  await commitChanges();
+    console.log(chalk.green('[1/3]'), `Bump versions`);
+    await bumpVersions();
+    console.log(chalk.green('[2/3]'), `Generate root changelog`);
+    await generateRootChangelog();
+
+    console.log(chalk.green('[3/3]'), `Commit changes`);
+    await commitChanges();
   } else {
     console.log('Skipping root changelog and versioning...');
   }
