@@ -3,7 +3,7 @@ import path from 'node:path';
 import chalk from 'chalk';
 import { should } from '../common/features.mjs';
 import { addFileToStage } from '../common/git.mjs';
-import { DEPLOY_COMMIT_SUBJECT } from '../common/constants.mjs';
+import { ROOT_VERSIONS_COMMIT_SUBJECT } from '../common/constants.mjs';
 import { execa } from 'execa';
 import { GitError } from '../common/errors.mjs';
 import {
@@ -31,7 +31,7 @@ async function generateRootChangelog() {
   await addFileToStage(rootChangelogPath());
 }
 async function commitChanges() {
-  const message = `${DEPLOY_COMMIT_SUBJECT}`;
+  const message = `${ROOT_VERSIONS_COMMIT_SUBJECT}`;
   const body = '[skip ci]';
 
   console.log(`Committing root changelog...`);
@@ -48,7 +48,7 @@ async function bumpVersions() {
   await bumpPackageVersion(PLAYGROUND_PACKAGE_NAME);
   await addFileToStage(playgroundPackageJsonPath());
 }
-async function bumpRootVersion(pkg) {
+async function bumpRootVersion() {
   return await execa('yarn', [
     'version',
     `--major`,
