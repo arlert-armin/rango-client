@@ -1,3 +1,12 @@
+# [0.17.0](https://github.com/arlert-armin/rango-client/compare/provider-rabby@0.16.0...provider-rabby@0.17.0) (2025-08-12)
+
+
+### Features
+
+* rabby address ([cd023fd](https://github.com/arlert-armin/rango-client/commit/cd023fde7d58bba3efe8a38f137cdf050dcd1b77))
+
+
+
 # [0.12.0](https://github.com/rango-exchange/rango-client/compare/provider-rabby@0.11.1...provider-rabby@0.12.0) (2025-06-09)
 
 
