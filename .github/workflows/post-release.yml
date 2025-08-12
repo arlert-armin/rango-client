@@ -2,12 +2,17 @@ name: Post-Release
 on:
   workflow_dispatch:
 
+
   workflow_call:
     secrets:
       PAT:
         description: 'Add a PAT to secrets.'
         required: true
-    
+    inputs:
+      branch:
+        description: 'Branch to checkout'
+        required: true
+        type: string
 jobs:
   post-release:
     runs-on: ubuntu-latest
@@ -23,5 +28,5 @@ jobs:
       - name: Post Release
         run: yarn run post-release-prod
         env:
-          REF: ${{ github.ref }}
+          REF: ${{ inputs.branch || github.ref_name }}
           GH_TOKEN: ${{ github.token }}
