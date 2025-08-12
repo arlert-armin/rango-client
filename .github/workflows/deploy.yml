@@ -32,11 +32,14 @@ on:
 jobs:
   deploy-it:
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.branch || github.ref }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
+          ref: ${{ env.TARGET_BRANCH }}
 
       - name: Prepare
         uses: ./.github/actions/prepare
@@ -46,7 +49,7 @@ jobs:
           yarn global add vercel
           yarn run deploy
         env:
-          REF: ${{ inputs.branch || github.ref_name }}
+          REF: ${{ env.TARGET_BRANCH }}
           GH_TOKEN: ${{ github.token }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

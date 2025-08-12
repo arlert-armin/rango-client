@@ -16,11 +16,14 @@ on:
 jobs:
   post-release:
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.branch || github.ref }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
+          ref: ${{ env.TARGET_BRANCH }}
 
       - name: Prepare
         uses: ./.github/actions/prepare
@@ -28,5 +31,5 @@ jobs:
       - name: Post Release
         run: yarn run post-release-prod
         env:
-          REF: ${{ inputs.branch || github.ref_name }}
+          REF: ${{ env.TARGET_BRANCH }}
           GH_TOKEN: ${{ github.token }}
