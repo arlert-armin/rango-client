@@ -18,7 +18,10 @@ async function run() {
   console.log(`Result for: pull\n`, pullOutput);
 
   // Merge `next` into `main`
-  const mergeOutput = await merge('next',{ mergeStrategy: '--no-ff' });
+  const mergeOutput = await merge('next', {
+    mergeStrategy: '--no-ff',
+    messages: ['chore: sync next with main', '[skip ci]'],
+  });
   console.log(`Result for: merge\n`, mergeOutput);
 
   // Push merged commits to `main`

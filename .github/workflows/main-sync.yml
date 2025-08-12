@@ -1,9 +1,7 @@
-name: Publish
+name: Main Sync
 on:
-  push:
-    branches:
-      - 'main'
-      - 'next'
+  workflow_dispatch:
+
   workflow_call:
     secrets:
       NPM_TOKEN:
@@ -12,25 +10,20 @@ on:
       PAT:
         description: 'Add a PAT to secrets.'
         required: true
-concurrency:
-  group: package-publishing
-
 jobs:
-  publish:
-    timeout-minutes: 30
+  main-sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
-      - run: git pull
 
       - name: Prepare
         uses: ./.github/actions/prepare
 
-      - name: Build, Version & Publish packages
-        run: yarn run publish
+      - name: Sync main to the next
+        run: yarn run main-sync
         env:
           REF: ${{ github.ref }}
           GH_TOKEN: ${{ github.token }}
