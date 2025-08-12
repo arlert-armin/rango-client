@@ -73,7 +73,7 @@ async function run() {
    * but if we need, the potential solution is filtering parcel apps and run them secquentially.
    */
 
-  logAsSection('::group::📋 Checking environments...');
+  logAsSection('::group::📋 Root changelog and versions...');
   await versionLog();
   console.log('::endgroup::');
 
