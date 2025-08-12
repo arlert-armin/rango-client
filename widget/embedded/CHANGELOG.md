@@ -1,3 +1,18 @@
+# [0.53.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.52.0...widget-embedded@0.53.0) (2025-08-12)
+
+
+### Bug Fixes
+
+* test chain ([c0bab14](https://github.com/arlert-armin/rango-client/commit/c0bab14343fd8a5afa525ea5e17a8139ccc10ec0))
+
+
+### Features
+
+* test release ([acf4e70](https://github.com/arlert-armin/rango-client/commit/acf4e709637405442251661f184de88900adbbdf))
+* work ([dd42f4d](https://github.com/arlert-armin/rango-client/commit/dd42f4db8f6f5cdf2d7b3471794e816a1c4c0eaf))
+
+
+
 # [0.52.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.51.0...widget-embedded@0.52.0) (2025-08-12)
 
 
