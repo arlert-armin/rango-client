@@ -73,6 +73,10 @@ async function run() {
    * but if we need, the potential solution is filtering parcel apps and run them secquentially.
    */
 
+  logAsSection('::group::📋 Checking environments...');
+  await versionLog();
+  console.log('::endgroup::');
+
   logAsSection(`::group::🔨 Start building...`);
   await build(pkgs);
   console.log('::endgroup::');
@@ -132,7 +136,6 @@ async function run() {
     );
 
     await publishCommitAndTags(listPkgsForTag);
-    await versionLog();
 
     await push();
     performance.mark(`end-publish-tagging`);
