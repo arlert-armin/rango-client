@@ -6,6 +6,7 @@ import { addFileToStage } from '../common/git.mjs';
 import { ROOT_VERSIONS_COMMIT_SUBJECT } from '../common/constants.mjs';
 import { execa } from 'execa';
 import { GitError } from '../common/errors.mjs';
+import { increaseVersionForProd } from '../common/version.mjs';
 import {
   PLAYGROUND_PACKAGE_NAME,
   WIDGET_APP_PACKAGE_NAME,
@@ -43,25 +44,15 @@ async function commitChanges() {
 async function bumpVersions() {
   await bumpRootVersion();
   await addFileToStage(rootPackageJsonPath());
-  await bumpPackageVersion(WIDGET_APP_PACKAGE_NAME);
+  await increaseVersionForProd({ name: WIDGET_APP_PACKAGE_NAME });
   await addFileToStage(widgetAppPackageJsonPath());
-  await bumpPackageVersion(PLAYGROUND_PACKAGE_NAME);
+  await increaseVersionForProd({ name: PLAYGROUND_PACKAGE_NAME });
   await addFileToStage(playgroundPackageJsonPath());
 }
 async function bumpRootVersion() {
   return await execa('yarn', [
     'version',
     `--major`,
-    '--no-git-tag-version',
-    '--json',
-  ]);
-}
-async function bumpPackageVersion(pkg) {
-  return await execa('yarn', [
-    'workspace',
-    pkg,
-    'version',
-    `--minor`,
     '--no-git-tag-version',
     '--json',
   ]);
