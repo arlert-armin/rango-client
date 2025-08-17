@@ -1,3 +1,12 @@
+# [0.54.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.53.0...widget-embedded@0.54.0) (2025-08-17)
+
+
+### Features
+
+* increase test ([fcc9f80](https://github.com/arlert-armin/rango-client/commit/fcc9f80d7907cbd9da728a27c97e369aa4d351c3))
+
+
+
 # [0.53.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.52.0...widget-embedded@0.53.0) (2025-08-12)
 
 
