@@ -2,25 +2,15 @@ import { packageNameWithoutScope } from './utils.mjs';
 import { ConventionalChangelog } from 'conventional-changelog';
 import { ConventionalGitClient } from '@conventional-changelog/git-client';
 import { createWriteStream, createReadStream, WriteStream } from 'node:fs';
-import path from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { rename, unlink, access } from 'node:fs/promises';
 import { Writable } from 'stream';
-
+import { packageChangelogPath, packageJsonPath, packagePath } from './path.mjs';
 // Our tagging is using lerna convention which is package-name@version
 // for example for @rango-dev/wallets-core, it will be wallets-core@1.1.0
 export const TAG_PACKAGE_PREFIX = (pkg) =>
   `${packageNameWithoutScope(pkg.name)}@`;
 const TAG_ROOT_PREFIX = /^[^@]+@/;
-
-// TODO: this is not correct assumption that the script will be run from the root.
-// I made it a function to make it easier correct behaviour in future.
-function rootPath() {
-  return path.join('.');
-}
-function rootPackageJson() {
-  return path.join(rootPath(), 'package.json');
-}
 
 /**
  * Retrieving some useful information when you are going to generate a changelog
@@ -92,7 +82,7 @@ export async function getInfoBeforeGeneratingChangelog(pkg) {
  * @returns {WriteStream}
  */
 export function changelogFileStream(pkg) {
-  const changelogPath = path.join(pkg.location, 'CHANGELOG.md');
+  const changelogPath = packageChangelogPath(pkg.location);
   const changelogPathTmp = changelogPath + '.tmp';
 
   // Creating a temp writer to don't load the whole file in memory at once, at the end will append the old changelog to the temp, then rename it.
@@ -147,7 +137,7 @@ export function generateChangelog(pkg) {
   generator.loadPreset('angular');
 
   if (pkg) {
-    generator.readPackage(`${pkg.location}/package.json`);
+    generator.readPackage(packageJsonPath(pkg.location));
     generator.commits({
       path: pkg.location,
     });
@@ -156,7 +146,7 @@ export function generateChangelog(pkg) {
       prefix: TAG_PACKAGE_PREFIX(pkg),
     });
   } else {
-    generator.readPackage(rootPackageJson());
+    generator.readPackage(packageJsonPath());
     generator.tags({
       prefix: TAG_ROOT_PREFIX,
     });
@@ -175,7 +165,7 @@ export async function generateChangelogAndSave(pkg) {
 
     // we only need location for file stream, when pkg is undefined, we will point to root of the project.
     // useful for creating root changelog for a monorepo, or for normal repos.
-    if (!pkg) pkg = { location: rootPath() };
+    if (!pkg) pkg = { location: packagePath() };
 
     const writeStream = changelog.pipe(changelogFileStream(pkg));
 
