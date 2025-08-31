@@ -161,7 +161,7 @@ export function generateChangelog(pkg) {
       headerTemplate += `\n_includes \`@rango-dev/widget-embedded@${embeddedVersion}\`_`;
     }
 
-    generator.readPackage(rootPackageJson());
+    generator.readPackage(packageJsonPath());
     generator.context({
       // TODO: this shouldn't be hardcoded, we can use package.json's name field.
       // TODO: this is also a dirty way to know we are in rango-client or not. for other repos, we don't add any title.
