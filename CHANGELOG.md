@@ -1,3 +1,17 @@
+##  [7.2.0] (2025-08-31)
+
+### Bug Fixes
+
+* match the root changelog format with the old format ([35e0f08](https://github.com/arlert-armin/rango-client/commit/35e0f08662e8f4a4a699dab260d9a5f24edd9bb6))
+* read package json from correct path ([4811374](https://github.com/arlert-armin/rango-client/commit/4811374f2b60c23900810c9977b771f4a2f85af7))
+
+
+### Features
+
+* with new changes ([373aa87](https://github.com/arlert-armin/rango-client/commit/373aa87dfe975df163af08a8420f53219361ac7a))
+
+
+
 # [7.1.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.54.0.../^[^@]+@/7.1.0) (2025-08-18)
 
 
