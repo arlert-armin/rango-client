@@ -177,37 +177,7 @@ export async function publishCommitAndTags(pkgs) {
 
   return tags;
 }
-/**
- * Creates a Git commit with the provided messages.
- *
- * - Supports multiple commit messages by passing them as an array.
- * - Optionally appends `[skip ci]` to the commit message to skip CI pipelines.
- * - Can disable Git hooks verification if `shouldVerify` is set.
- *
- * @param @typedef {string}  messages - The commit messages to include.
- * @param {import("./typedefs.mjs").MakeCommitOptions} options - Commit options.
- *
- * @throws {GitError} If the `git commit` command fails.
- */
-export async function makeCommit(messages, options) {
-  const { shouldVerify, shouldSkipCI } = options;
 
-  const messagesWithCI = shouldSkipCI ? [...messages, '[skip ci]'] : messages;
-
-  const commitArgs = [
-    'commit',
-    ...messagesWithCI.flatMap((msg) => ['-m', msg]),
-    ...(shouldVerify ? [] : ['--no-verify']),
-  ];
-
-  try {
-    await execa('git', commitArgs);
-  } catch (error) {
-    throw new GitError(
-      `git commit failed. \n ${error.stderr || error.message}`
-    );
-  }
-}
 
 /**
  * Creates a Git commit with the provided messages.
