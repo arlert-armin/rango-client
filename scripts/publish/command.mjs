@@ -78,9 +78,6 @@ async function run() {
    * but if we need, the potential solution is filtering parcel apps and run them secquentially.
    */
 
-  logAsSection('::group::📋 Root changelog and versions...');
-  await bumpClientAndRootVersionsAndGenerateRootChangelog();
-  console.log('::endgroup::');
 
   logAsSection(`::group::🔨 Start building...`);
   await build(pkgs);
