@@ -177,6 +177,8 @@ export async function publishCommitAndTags(pkgs) {
 
   return tags;
 }
+
+
 /**
  * Creates a Git commit with the provided messages.
  *
@@ -184,7 +186,7 @@ export async function publishCommitAndTags(pkgs) {
  * - Optionally appends `[skip ci]` to the commit message to skip CI pipelines.
  * - Can disable Git hooks verification if `shouldVerify` is set.
  *
- * @param @typedef {string}  messages - The commit messages to include.
+ * @param @typedef {string[]}  messages - The commit messages to include.
  * @param {import("./typedefs.mjs").MakeCommitOptions} options - Commit options.
  *
  * @throws {GitError} If the `git commit` command fails.
@@ -208,7 +210,6 @@ export async function makeCommit(messages, options) {
     );
   }
 }
-
 export async function publishTags(pkgs) {
   const tags = pkgs.map(generateTagName);
 

@@ -16,7 +16,7 @@ import { addFileToStage, publishCommitAndTags, push } from '../common/git.mjs';
 import { update } from './package.mjs';
 import { build } from './build.mjs';
 import { should } from '../common/features.mjs';
-import { versionLog } from './version-log.mjs';
+import { bumpClientAndRootVersionsAndGenerateRootChangelog } from './version-log.mjs';
 
 async function run() {
   logAsSection('::group::🔍 Checking environments...');
@@ -64,7 +64,12 @@ async function run() {
 
   console.log('::endgroup::');
 
-  // 2. Build all packacges
+  // 2. Generate root changelog and bump widget, app and root versions.
+  logAsSection('::group::📋 Root changelog and versions...');
+  await bumpClientAndRootVersionsAndGenerateRootChangelog();
+  console.log('::endgroup::');
+
+  // 3. Build all packacges
   /**
    * IMPORTANT NOTE:
    * We are all the libs in parallel, parcel has a limitation on running `parcel` instances.
@@ -73,16 +78,13 @@ async function run() {
    * but if we need, the potential solution is filtering parcel apps and run them secquentially.
    */
 
-  logAsSection('::group::📋 Root changelog and versions...');
-  await versionLog();
-  console.log('::endgroup::');
 
   logAsSection(`::group::🔨 Start building...`);
   await build(pkgs);
   console.log('::endgroup::');
 
-  // 3. Publish
-
+  // 4. Publish
+  logAsSection(`::group::🚀 Start publishing...`);
   try {
     await tryPublish(pkgs, {
       onUpdateState: state.setState.bind(state),
@@ -105,7 +107,7 @@ async function run() {
 
   console.log('::endgroup::');
 
-  // 4. Tag and Push
+  // 5. Tag and Push
 
   /**
    * Our final list will includes only packages that published on NPM.
@@ -151,7 +153,7 @@ async function run() {
 
   console.log('::endgroup::');
 
-  // 5. Making github release
+  // 6. Making github release
   // NOTE: If any error happens in this step we are don't bail out the process and will continue. A warning will be shown.
   console.log('::group::🐙 Github release');
   if (should('generateChangelog')) {

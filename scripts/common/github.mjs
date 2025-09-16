@@ -42,7 +42,7 @@ export async function getGithubReleaseFor(pkg) {
  */
 export async function makeGithubRelease(pkg) {
   const notes = '';
-  for await (const chunk of generateChangelog(pkg)) {
+  for await (let chunk of generateChangelog(pkg)) {
     notes += chunk;
   }
 

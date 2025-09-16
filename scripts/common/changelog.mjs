@@ -5,8 +5,8 @@ import { createWriteStream, createReadStream, WriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { rename, unlink, access } from 'node:fs/promises';
 import { Writable } from 'stream';
-import { packageChangelogPath, packageJsonPath, packagePath } from './path.mjs';
-import path from 'path';
+import { packageJsonPath, packageChangelogPath, packagePath } from './path.mjs';
+
 // Our tagging is using lerna convention which is package-name@version
 // for example for @rango-dev/wallets-core, it will be wallets-core@1.1.0
 export const TAG_PACKAGE_PREFIX = (pkg) =>
@@ -152,8 +152,7 @@ export function generateChangelog(pkg) {
     try {
       const json = packageJson(path.join('widget', 'embedded'));
       embeddedVersion = json.version;
-    } catch (e) {
-      console.log(e);
+    } catch {
       // ignore. in case of the target directory changed or doesn't exists.
     }
 
@@ -191,7 +190,7 @@ export async function generateChangelogAndSave(pkg) {
 
     // we only need location for file stream, when pkg is undefined, we will point to root of the project.
     // useful for creating root changelog for a monorepo, or for normal repos.
-    if (!pkg) pkg = { location: packagePath() };
+    if (!pkg) pkg = { location: '' };
 
     const writeStream = changelog.pipe(changelogFileStream(pkg));
 
