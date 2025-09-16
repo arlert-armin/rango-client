@@ -1,6 +1,6 @@
 {
   "name": "@arlert-dev/widget-app",
-  "version": "0.51.0",
+  "version": "0.52.0",
   "license": "MIT",
   "private": true,
   "source": "public/index.html",
