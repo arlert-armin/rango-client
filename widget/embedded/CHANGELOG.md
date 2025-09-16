@@ -1,3 +1,12 @@
+# [0.58.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.57.0...widget-embedded@0.58.0) (2025-09-16)
+
+
+### Features
+
+* test cherry pick working ([1f36469](https://github.com/arlert-armin/rango-client/commit/1f36469080d1ad396c7807f2923221e267a485db))
+
+
+
 # [0.57.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.56.0...widget-embedded@0.57.0) (2025-09-02)
 
 
