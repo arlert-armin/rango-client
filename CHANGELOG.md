@@ -1,3 +1,14 @@
+## Widget [7.5.0] (2025-09-16)
+_includes `@rango-dev/widget-embedded@0.58.1`_
+
+### Bug Fixes
+
+* add missing path ([02c2bff](https://github.com/arlert-armin/rango-client/commit/02c2bff913f40de76dcd53d35985870847ff9389))
+* add missing path ([7da1b4b](https://github.com/arlert-armin/rango-client/commit/7da1b4b7dfbc116658c5e9edaaed787fa284ab32))
+* path import ([1dea962](https://github.com/arlert-armin/rango-client/commit/1dea962cb3a2324d0ac16a39db831a0da0644608))
+
+
+
 ##  [7.4.0] (2025-09-16)
 
 ### Bug Fixes

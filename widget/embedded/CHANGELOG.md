@@ -1,3 +1,12 @@
+## [0.58.1](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.58.0...widget-embedded@0.58.1) (2025-09-16)
+
+
+### Bug Fixes
+
+* add missing path ([02c2bff](https://github.com/arlert-armin/rango-client/commit/02c2bff913f40de76dcd53d35985870847ff9389))
+
+
+
 # [0.58.0](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.57.0...widget-embedded@0.58.0) (2025-09-16)
 
 
