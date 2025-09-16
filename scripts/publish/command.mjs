@@ -79,7 +79,7 @@ async function run() {
    */
 
   logAsSection('::group::📋 Root changelog and versions...');
-  await versionLog();
+  await bumpClientAndRootVersionsAndGenerateRootChangelog();
   console.log('::endgroup::');
 
   logAsSection(`::group::🔨 Start building...`);
