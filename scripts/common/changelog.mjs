@@ -2,11 +2,12 @@ import { packageNameWithoutScope, packageJson } from './utils.mjs';
 import { ConventionalChangelog } from 'conventional-changelog';
 import { ConventionalGitClient } from '@conventional-changelog/git-client';
 import { createWriteStream, createReadStream, WriteStream } from 'node:fs';
+import path from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { rename, unlink, access } from 'node:fs/promises';
 import { Writable } from 'stream';
-import { packageChangelogPath, packageJsonPath, packagePath } from './path.mjs';
-import path from 'path';
+import { packageJsonPath, packageChangelogPath, packagePath } from './path.mjs';
+
 // Our tagging is using lerna convention which is package-name@version
 // for example for @rango-dev/wallets-core, it will be wallets-core@1.1.0
 export const TAG_PACKAGE_PREFIX = (pkg) =>
@@ -152,8 +153,7 @@ export function generateChangelog(pkg) {
     try {
       const json = packageJson(path.join('widget', 'embedded'));
       embeddedVersion = json.version;
-    } catch (e) {
-      console.log(e);
+    } catch {
       // ignore. in case of the target directory changed or doesn't exists.
     }
 
