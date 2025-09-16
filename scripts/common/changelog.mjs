@@ -6,7 +6,7 @@ import { pipeline } from 'node:stream/promises';
 import { rename, unlink, access } from 'node:fs/promises';
 import { Writable } from 'stream';
 import { packageJsonPath, packageChangelogPath } from './path.mjs';
-import { path } from 'node:path';
+import path from 'node:path';
 // Our tagging is using lerna convention which is package-name@version
 // for example for @rango-dev/wallets-core, it will be wallets-core@1.1.0
 export const TAG_PACKAGE_PREFIX = (pkg) =>
