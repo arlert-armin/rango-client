@@ -1,3 +1,20 @@
+##  [7.4.0] (2025-09-16)
+
+### Bug Fixes
+
+* add missing root change log generator ([a6d5c40](https://github.com/arlert-armin/rango-client/commit/a6d5c40ca5cb3b499fc6c1417993ddc56a82a0bc))
+* add missing rootPath ([780f566](https://github.com/arlert-armin/rango-client/commit/780f56697ec1c1a18d7b0b97be1d6649e84d7139))
+* remove extra changelog ([58e5eff](https://github.com/arlert-armin/rango-client/commit/58e5eff87d32709e2aef198a92b6347cc603f80e))
+* remove extra commit function ([52095be](https://github.com/arlert-armin/rango-client/commit/52095beeb44ebc32833f31416dca877cd59fa82c))
+* remove extra subject ([3efcbfe](https://github.com/arlert-armin/rango-client/commit/3efcbfe916e11241ca67038c0e4d1fa07248ee2d))
+
+
+### Features
+
+* test cherry pick working ([1f36469](https://github.com/arlert-armin/rango-client/commit/1f36469080d1ad396c7807f2923221e267a485db))
+
+
+
 ## Widget [7.3.0] (2025-09-02)
 _includes `@rango-dev/widget-embedded@0.57.0`_
 
