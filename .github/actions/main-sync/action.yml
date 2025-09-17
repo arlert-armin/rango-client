@@ -5,7 +5,7 @@ runs:
   using: "composite"
   steps:
     - name: Install execa
-      run: yarn add execa
+      run: yarn global add execa
       shell: bash
     - name: Sync main to the next
       run: yarn run main-sync
