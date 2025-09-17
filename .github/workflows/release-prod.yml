@@ -3,26 +3,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  prepare:
+  main-sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Prepare
         uses: ./.github/actions/prepare
-      - name: Upload prepared repo
-        uses: actions/upload-artifact@v4
-        with:
-          name: prepared-repo
-          path: .
-
-  main-sync:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: prepared-repo
-          path: .
       - name: Run Main Sync
         uses: ./.github/actions/main-sync
 
@@ -49,9 +34,7 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: prepared-repo
-          path: .
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Run Post Release
         uses: ./.github/actions/post-release
