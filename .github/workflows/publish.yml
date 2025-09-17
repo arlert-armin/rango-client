@@ -12,11 +12,6 @@ on:
       PAT:
         description: 'Add a PAT to secrets.'
         required: true
-    inputs:
-      branch:
-        description: 'Branch to checkout'
-        required: true
-        type: string
 concurrency:
   group: package-publishing
 
@@ -24,14 +19,12 @@ jobs:
   publish:
     timeout-minutes: 30
     runs-on: ubuntu-latest
-    env:
-      TARGET_BRANCH: ${{ inputs.branch || github.ref }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
-          ref: ${{ env.TARGET_BRANCH }}
+          ref: ${{ github.ref }}
 
       - run: git pull
 
@@ -41,7 +34,7 @@ jobs:
       - name: Build, Version & Publish packages
         run: yarn run publish
         env:
-          REF: ${{ env.TARGET_BRANCH }}
+          REF: ${{ github.ref }}
           GH_TOKEN: ${{ github.token }}
           # Github will create .npmrc based on this env variable.
           # https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry

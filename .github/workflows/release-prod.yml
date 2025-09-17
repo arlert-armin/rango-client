@@ -9,15 +9,11 @@ jobs:
       - name: Run Main Sync
         uses: ./.github/actions/main-sync
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           PAT: ${{ secrets.PAT }}
 
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
-    with:
-      branch:
-        refs/heads/main
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PAT: ${{ secrets.PAT }}
@@ -25,9 +21,6 @@ jobs:
   deploy:
     needs: publish
     uses: ./.github/workflows/deploy.yml
-    with:
-      branch:
-        refs/heads/main
     secrets:
       PAT: ${{ secrets.PAT }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

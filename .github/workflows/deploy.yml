@@ -24,22 +24,15 @@ on:
       VERCEL_PROJECT_Q:
         description: 'Add a VERCEL_PROJECT_Q to secrets.'
         required: true
-    inputs:
-      branch:
-        description: 'Branch to checkout'
-        required: true
-        type: string
 jobs:
   deploy-it:
     runs-on: ubuntu-latest
-    env:
-      TARGET_BRANCH: ${{ inputs.branch || github.ref }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
-          ref: ${{ env.TARGET_BRANCH }}
+          ref: ${{ github.ref }}
 
       - name: Prepare
         uses: ./.github/actions/prepare
@@ -49,7 +42,7 @@ jobs:
           yarn global add vercel
           yarn run deploy
         env:
-          REF: ${{ env.TARGET_BRANCH }}
+          REF: ${{ github.ref }}
           GH_TOKEN: ${{ github.token }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
