@@ -160,7 +160,7 @@ export async function publishCommitAndTags(pkgs) {
     When we are pushing a publish commit into main or next, it triggers a redundant workflow run,
     To avoid this, by adding a [skip ci] the workflow run will be skipped.
   */
-  await makeCommit([message, body], {
+  await commit([message, body], {
     // When we are pushing a publish commit into main or next, it triggers a redundant workflow run,
     // To avoid this, by adding a [skip ci] the workflow run will be skipped.
     shouldSkipCI: true,
@@ -191,7 +191,7 @@ export async function publishCommitAndTags(pkgs) {
  *
  * @throws {GitError} If the `git commit` command fails.
  */
-export async function makeCommit(messages, options) {
+export async function commit(messages, options) {
   const { shouldVerify, shouldSkipCI } = options;
 
   const messagesWithCI = shouldSkipCI ? [...messages, '[skip ci]'] : messages;

@@ -3,7 +3,7 @@ import { generateChangelogAndSave } from '../common/changelog.mjs';
 
 import chalk from 'chalk';
 import { should } from '../common/features.mjs';
-import { addFileToStage, makeCommit } from '../common/git.mjs';
+import { addFileToStage, commit } from '../common/git.mjs';
 import { ROOT_VERSIONS_COMMIT_SUBJECT } from '../common/constants.mjs';
 import { increaseVersionForProd } from '../common/version.mjs';
 import { workspacePackages } from '../common/utils.mjs';
@@ -46,10 +46,9 @@ export async function bumpClientAndRootVersionsAndGenerateRootChangelog() {
     await generateRootChangelog();
 
     console.log(chalk.green('[3/3]'), `Commit changes`);
-    await makeCommit([ROOT_VERSIONS_COMMIT_SUBJECT], {
+    await commit([ROOT_VERSIONS_COMMIT_SUBJECT], {
       shouldSkipCI: true,
-      // If ESLint fails, it will break our workflow, so it has been turned off to avoid checking files.
-      shouldVerify: false,
+      shouldVerify: true,
     });
   } else {
     console.log('Skipping root changelog and versioning...');

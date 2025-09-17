@@ -4,17 +4,18 @@ on:
 
 jobs:
   main-sync:
-    uses: ./.github/workflows/main-sync.yml
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+      - name: Run Main Sync
+        uses: ./.github/actions/main-sync
 
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
-    with:
-      branch:
-        refs/heads/main
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PAT: ${{ secrets.PAT }}
@@ -22,9 +23,6 @@ jobs:
   deploy:
     needs: publish
     uses: ./.github/workflows/deploy.yml
-    with:
-      branch:
-        refs/heads/main
     secrets:
       PAT: ${{ secrets.PAT }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -36,9 +34,11 @@ jobs:
 
   post-release:
     needs: deploy
-    with:
-      branch:
-        refs/heads/next
-    uses: ./.github/workflows/post-release.yml
-    secrets:
-      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+      - name: Run Post Release
+        uses: ./.github/actions/post-release
