@@ -4,6 +4,9 @@ description: "Runs the post-release flow"
 runs:
   using: "composite"
   steps:
+    - name: Install execa
+      run: yarn add execa
+      shell: bash
     - name: Post Release
       run: yarn run post-release-prod
       shell: bash
