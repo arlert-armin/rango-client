@@ -8,9 +8,7 @@ jobs:
     steps:
       - name: Run Main Sync
         uses: ./.github/actions/main-sync
-        with:
-          PAT: ${{ secrets.PAT }}
-
+        
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
