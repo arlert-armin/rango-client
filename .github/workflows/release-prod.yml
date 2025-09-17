@@ -6,6 +6,10 @@ jobs:
   main-sync:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Run Main Sync
@@ -34,6 +38,10 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Run Post Release
