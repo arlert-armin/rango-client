@@ -1,3 +1,13 @@
+## [0.58.2](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.58.1...widget-embedded@0.58.2) (2025-09-17)
+
+
+### Bug Fixes
+
+* make it plural ([1f73282](https://github.com/arlert-armin/rango-client/commit/1f7328295ce028ddff8974a10981a54db3de8b71))
+* typo ([650f10a](https://github.com/arlert-armin/rango-client/commit/650f10afd625a5148b46177fa07d197cd678305f))
+
+
+
 ## [0.58.1](https://github.com/arlert-armin/rango-client/compare/widget-embedded@0.58.0...widget-embedded@0.58.1) (2025-09-16)
 
 
