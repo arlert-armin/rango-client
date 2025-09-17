@@ -4,10 +4,13 @@ on:
 
 jobs:
   main-sync:
-    uses: ./.github/workflows/main-sync.yml
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Main Sync
+        uses: ./.github/actions/main-sync
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PAT: ${{ secrets.PAT }}
 
   publish:
     needs: main-sync
@@ -36,9 +39,7 @@ jobs:
 
   post-release:
     needs: deploy
-    with:
-      branch:
-        refs/heads/next
-    uses: ./.github/workflows/post-release.yml
-    secrets:
-      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Post Release
+        uses: ./.github/actions/post-release
