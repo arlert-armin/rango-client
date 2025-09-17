@@ -1,3 +1,26 @@
+## Widget [7.6.0] (2025-09-17)
+_includes `@rango-dev/widget-embedded@0.58.2`_
+
+### Bug Fixes
+
+* action names ([6369aeb](https://github.com/arlert-armin/rango-client/commit/6369aeb6f9ff42a3ad2c2885432517af9d783cc5))
+* add execa install ([53a6cd8](https://github.com/arlert-armin/rango-client/commit/53a6cd834ddd8fa8063579d166d089c74876b9d8))
+* call prepare action before every action ([4bf164d](https://github.com/arlert-armin/rango-client/commit/4bf164d31f37e3a549cf7a82b71af6bf5a1a4450))
+* call prepare action before every action ([e0aa30b](https://github.com/arlert-armin/rango-client/commit/e0aa30b6d0be67462c604f752f431494150485ee))
+* change commit name ([5642ff2](https://github.com/arlert-armin/rango-client/commit/5642ff270f5c51ebd6a01dd5fc655dbdd2f81a8a))
+* checkout before calling action ([59a2ecb](https://github.com/arlert-armin/rango-client/commit/59a2ecbb7638c6a8843b40457f5c30b4816e2f67))
+* install execa globally ([7bde413](https://github.com/arlert-armin/rango-client/commit/7bde413dc1341de6ba035249b89f697c29c547cf))
+* install execa globally ([33be34b](https://github.com/arlert-armin/rango-client/commit/33be34bb6a084643a885c027abb507ee99b4b60b))
+* make it plural ([1f73282](https://github.com/arlert-armin/rango-client/commit/1f7328295ce028ddff8974a10981a54db3de8b71))
+* remove pat from calling sync ([e137de5](https://github.com/arlert-armin/rango-client/commit/e137de545cbd74e38068016a5f2ed404866101bf))
+* run checkout before prepare ([a0a05ee](https://github.com/arlert-armin/rango-client/commit/a0a05eee609a99c9843b3bdc1395b9ec1c9c826e))
+* run checkout before prepare ([81287cf](https://github.com/arlert-armin/rango-client/commit/81287cfed111a9cbb7c062692188cf5ddce1291e))
+* run prepare once ([ebcb4fb](https://github.com/arlert-armin/rango-client/commit/ebcb4fb1150b585fbb9c739b84b21c1c4675438a))
+* run prepare once ([056da76](https://github.com/arlert-armin/rango-client/commit/056da764bdf8b68eb4e115f111bfe66f62c1ffe5))
+* typo ([650f10a](https://github.com/arlert-armin/rango-client/commit/650f10afd625a5148b46177fa07d197cd678305f))
+
+
+
 ## Widget [7.5.0] (2025-09-16)
 _includes `@rango-dev/widget-embedded@0.58.1`_
 
