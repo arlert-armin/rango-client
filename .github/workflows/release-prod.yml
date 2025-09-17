@@ -6,9 +6,13 @@ jobs:
   main-sync:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
       - name: Run Main Sync
         uses: ./.github/actions/main-sync
-        
+
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
@@ -32,5 +36,9 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
       - name: Run Post Release
         uses: ./.github/actions/post-release
