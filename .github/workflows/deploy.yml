@@ -2,28 +2,7 @@ name: Deploy
 on:
   workflow_dispatch:
   workflow_call:
-    secrets:
-      PAT:
-        description: 'Add a PAT to secrets.'
-        required: true
-      VERCEL_ORG_ID:
-        description: 'Add a VERCEL_ORG_ID to secrets.'
-        required: true
-      VERCEL_TOKEN:
-        description: 'Add a VERCEL_TOKEN to secrets.'
-        required: true
-      VERCEL_PROJECT_WIDGET_CONFIG:
-        description: 'Add a VERCEL_PROJECT_WIDGET_CONFIG to secrets.'
-        required: true
-      VERCEL_PROJECT_WIDGET_APP:
-        description: 'Add a VERCEL_PROJECT_WIDGET_APP to secrets.'
-        required: true
-      VERCEL_PROJECT_STORYBOOK:
-        description: 'Add a VERCEL_PROJECT_STORYBOOK to secrets.'
-        required: true
-      VERCEL_PROJECT_Q:
-        description: 'Add a VERCEL_PROJECT_Q to secrets.'
-        required: true
+
 jobs:
   deploy-it:
     runs-on: ubuntu-latest

@@ -2,16 +2,9 @@ name: Publish
 on:
   push:
     branches:
-      - 'main'
       - 'next'
   workflow_call:
-    secrets:
-      NPM_TOKEN:
-        description: 'You need a npm token to be set.'
-        required: true
-      PAT:
-        description: 'Add a PAT to secrets.'
-        required: true
+
 concurrency:
   group: package-publishing
 
