@@ -1,3 +1,14 @@
+## Widget [7.8.0] (2025-09-21)
+_includes `@rango-dev/widget-embedded@0.58.4`_
+
+### Bug Fixes
+
+* sync main commit message ([a60d296](https://github.com/arlert-armin/rango-client/commit/a60d2962ae92527f6c02f1b84958a0521dee391f))
+* sync main commit message ([d6b2c83](https://github.com/arlert-armin/rango-client/commit/d6b2c83aac5a6f76982ebfa2987e6697738c9b79))
+* test for widget ([800e4dd](https://github.com/arlert-armin/rango-client/commit/800e4dd88ac56a4cb81f10ee5d6e5a6adf59409f))
+
+
+
 ## Widget [7.7.0] (2025-09-21)
 _includes `@rango-dev/widget-embedded@0.58.3`_
 
