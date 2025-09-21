@@ -1,3 +1,16 @@
+## Widget [7.7.0] (2025-09-21)
+_includes `@rango-dev/widget-embedded@0.58.3`_
+
+### Bug Fixes
+
+* add inherit in secrets ([5eff3e5](https://github.com/arlert-armin/rango-client/commit/5eff3e51013636426d66439cbf4d134cfdf3a8c1))
+* just for test ([a19d7b3](https://github.com/arlert-armin/rango-client/commit/a19d7b358d8b0fb8fadbd0a221f213ecc6e82aca))
+* on widget ([590041c](https://github.com/arlert-armin/rango-client/commit/590041c480b79701c7878449643e232df30dfa6b))
+* remove secrets ([db9f299](https://github.com/arlert-armin/rango-client/commit/db9f29981d8334549b0ed87149734ccebfffcaca))
+* remove secrets ([222a542](https://github.com/arlert-armin/rango-client/commit/222a5429a5a4fd583a52289a8bd7a8d04dddb41d))
+
+
+
 ## Widget [7.6.0] (2025-09-17)
 _includes `@rango-dev/widget-embedded@0.58.2`_
 
