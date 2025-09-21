@@ -18,10 +18,12 @@ jobs:
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
+    secrets: inherit
 
   deploy:
     needs: publish
     uses: ./.github/workflows/deploy.yml
+    secrets: inherit
 
   post-release:
     needs: deploy
