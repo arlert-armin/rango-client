@@ -20,7 +20,7 @@ async function run() {
   // Merge `next` into `main`
   const mergeOutput = await merge('next', {
     mergeStrategy: '--no-ff',
-    messages: ['chore: sync next with main', '[skip ci]'],
+    messages: ['chore: sync main with next', '[skip ci]'],
   });
   console.log(`Result for: merge\n`, mergeOutput);
 
