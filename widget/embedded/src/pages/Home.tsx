@@ -298,7 +298,7 @@ export function Home() {
           isVisible={isVisibleExpanded}
         />
       ) : null}
-      <div>Test Mode | Changelog test with missing pathes</div>
+      <div>Test Mode | Changelog test with missing test</div>
     </MainContainer>
   );
 }
