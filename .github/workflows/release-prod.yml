@@ -18,21 +18,10 @@ jobs:
   publish:
     needs: main-sync
     uses: ./.github/workflows/publish.yml
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PAT: ${{ secrets.PAT }}
 
   deploy:
     needs: publish
     uses: ./.github/workflows/deploy.yml
-    secrets:
-      PAT: ${{ secrets.PAT }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_PROJECT_WIDGET_CONFIG: ${{ secrets.VERCEL_PROJECT_WIDGET_CONFIG }}
-      VERCEL_PROJECT_WIDGET_APP: ${{ secrets.VERCEL_PROJECT_WIDGET_APP }}
-      VERCEL_PROJECT_STORYBOOK: ${{ secrets.VERCEL_PROJECT_STORYBOOK }}
-      VERCEL_PROJECT_Q: ${{ secrets.VERCEL_PROJECT_Q }}
 
   post-release:
     needs: deploy
