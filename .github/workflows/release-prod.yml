@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  main-sync:
+  sync-main:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,11 +12,11 @@ jobs:
           token: ${{ secrets.PAT }}
       - name: Prepare
         uses: ./.github/actions/prepare
-      - name: Run Main Sync
-        uses: ./.github/actions/main-sync
+      - name: Run Sync Main
+        uses: ./.github/actions/sync-main
 
   publish:
-    needs: main-sync
+    needs: sync-main
     uses: ./.github/workflows/publish.yml
     secrets: inherit
 
@@ -35,5 +35,5 @@ jobs:
           token: ${{ secrets.PAT }}
       - name: Prepare
         uses: ./.github/actions/prepare
-      - name: Run Post Release
-        uses: ./.github/actions/post-release
+      - name: Run Sync Next
+        uses: ./.github/actions/sync-net

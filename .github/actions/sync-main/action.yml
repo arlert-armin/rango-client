@@ -1,11 +1,11 @@
-name: "Main Sync"
+name: "Sync Main"
 description: "Syncs main branch to next"
 
 runs:
   using: "composite"
   steps:
     - name: Sync main to the next
-      run: yarn run main-sync
+      run: yarn run sync-main
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
