@@ -1,6 +1,6 @@
 {
   "name": "@arlert-dev/widget-embedded",
-  "version": "0.58.5-next.3",
+  "version": "0.58.5-next.4",
   "license": "MIT",
   "type": "module",
   "source": "./src/index.ts",
