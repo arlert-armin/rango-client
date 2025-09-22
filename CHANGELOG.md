@@ -1,3 +1,29 @@
+## Widget [7.10.0] (2025-09-22)
+_includes `@rango-dev/widget-embedded@0.60.0`_
+
+### Bug Fixes
+
+* add production version ([ba8a7a6](https://github.com/arlert-armin/rango-client/commit/ba8a7a6b9e0c8dacd0b09c9fc488c14bf14883c8))
+* for test ([dc5ee6f](https://github.com/arlert-armin/rango-client/commit/dc5ee6f9254e0b15cfc8135330d2ba7d5c637190))
+* for test ([5c8d59f](https://github.com/arlert-armin/rango-client/commit/5c8d59ff5a9bbbc827c34200d6e8e0137d5ab85e))
+* run correct command ([fb6fbbc](https://github.com/arlert-armin/rango-client/commit/fb6fbbcb428b71518a113fe3c24565189f8ae0fa))
+* ternary sync command ([9facbb1](https://github.com/arlert-armin/rango-client/commit/9facbb1c0d3888bd650b8a8b667ff74cfda3847c))
+* ternary sync command ([28de3a6](https://github.com/arlert-armin/rango-client/commit/28de3a6a1a5e9e22994f45b0e94ae6899841bbe5))
+* test for work ([b4b9073](https://github.com/arlert-armin/rango-client/commit/b4b9073ed4f66b1b0a6d6be5ca8b64fe6cd09c69))
+* use correct command in sync ([e834653](https://github.com/arlert-armin/rango-client/commit/e8346537d6a2a8156e949ba62c0c08ae97ca768c))
+* use correct command in sync ([578e0b7](https://github.com/arlert-armin/rango-client/commit/578e0b728f73e73541fd35c8e92019bb2a8e4780))
+
+
+### Features
+
+* check ternary ([fc35895](https://github.com/arlert-armin/rango-client/commit/fc35895f1fa447db82b67103108ce894ad50f323))
+* for test ([4ca025d](https://github.com/arlert-armin/rango-client/commit/4ca025dc083fe8ed103ea8f90fb2129c8e2750a6))
+* for test commit ([c0dd1d1](https://github.com/arlert-armin/rango-client/commit/c0dd1d114868ec1bf756e7393b2cc8f57024959e))
+* for test commit ([37bccc4](https://github.com/arlert-armin/rango-client/commit/37bccc4e621817f9ac11887ce42ba91bd9847e63))
+* testing feat for versioning ([615d4cb](https://github.com/arlert-armin/rango-client/commit/615d4cb1876afbbe852aa41fa95b7caf660f52da))
+
+
+
 ## Widget [7.9.0] (2025-09-22)
 _includes `@rango-dev/widget-embedded@0.59.0`_
 
