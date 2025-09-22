@@ -5,14 +5,14 @@ inputs:
   prod:
     description: "Whether it is for prod sync"
     required: false
-    default: "false"
+    default: false
     type: boolean
 
 runs:
   using: "composite"
   steps:
     - name: Sync branch
-      run: yarn run sync-main ${{ inputs.prod == 'true' && '--prod' }}
+      run: yarn run sync-main ${{ inputs.prod && '--prod' || '' }}
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
