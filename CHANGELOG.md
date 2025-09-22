@@ -1,3 +1,12 @@
+## Widget [7.9.0] (2025-09-22)
+_includes `@rango-dev/widget-embedded@0.59.0`_
+
+### Features
+
+* testing feat for versioning ([615d4cb](https://github.com/arlert-armin/rango-client/commit/615d4cb1876afbbe852aa41fa95b7caf660f52da))
+
+
+
 ## Widget [7.8.0] (2025-09-21)
 _includes `@rango-dev/widget-embedded@0.58.4`_
 
