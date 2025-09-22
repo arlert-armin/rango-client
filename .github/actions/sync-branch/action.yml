@@ -1,5 +1,5 @@
 name: "Sync Branch"
-description: "Syncs main branch to next"
+description: "Syncs main branch to next or vice versa"
 
 inputs:
   prod:
@@ -12,7 +12,7 @@ runs:
   using: "composite"
   steps:
     - name: Sync branch
-      run: yarn run sync-branch ${{ inputs.prod && '--prod' || '' }}
+      run: yarn run sync-main ${{ inputs.prod == 'true' && '--prod' }}
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
