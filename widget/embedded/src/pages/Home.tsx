@@ -298,7 +298,7 @@ export function Home() {
           isVisible={isVisibleExpanded}
         />
       ) : null}
-      <div>Test Mode | Changelog test with test with new merged</div>
+      <div>Test Mode | Changelog test with test with new test test</div>
     </MainContainer>
   );
 }
