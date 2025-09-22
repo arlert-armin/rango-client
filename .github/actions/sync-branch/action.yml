@@ -12,7 +12,7 @@ runs:
   using: "composite"
   steps:
     - name: Sync branch
-      run: yarn run sync-main ${{ inputs.prod && '--prod' || '' }}
+      run: yarn run sync-branch ${{ inputs.prod && '--prod' || '' }}
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
