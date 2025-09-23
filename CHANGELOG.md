@@ -1,3 +1,12 @@
+## Widget [7.11.0] (2025-09-23)
+_includes `@rango-dev/widget-embedded@0.60.1`_
+
+### Bug Fixes
+
+* for test ([370bff1](https://github.com/arlert-armin/rango-client/commit/370bff1add135a583eadcc33a7ade42b3f177f74))
+
+
+
 ## Widget [7.10.0] (2025-09-22)
 _includes `@rango-dev/widget-embedded@0.60.0`_
 
