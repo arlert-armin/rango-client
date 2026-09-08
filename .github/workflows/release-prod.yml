@@ -21,6 +21,8 @@ jobs:
     needs: sync-prod
     uses: ./.github/workflows/publish.yml
     secrets: inherit
+    permissions:
+      contents: write
 
   deploy:
     needs: publish
